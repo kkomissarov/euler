@@ -11,12 +11,11 @@ from functools import reduce
 
 4. Если сумма остатков равна 0 - останавливаем цикл.  
 """
-step = reduce(lambda x, y: x * y, (num for num in range(2, 21) if 0 not in [num % x for x in range(2, num)]))
 
+step = reduce(lambda x, y: x * y, (num for num in range(2, 21) if 0 not in [num % x for x in range(2, num)]))
 i = step
 while True:
-    #Если сумма всех остатков от деления на все числа последовательности равна 0 (т.е. все остатки == 0)
-    if sum([x for x in (i % y for y in range(2, 11))]) == 0:
+    if sum([x for x in (i % y for y in range(2, 21))]) == 0:
         print(i, 'делится на все числа от 1 до 20')
         break
     else:
