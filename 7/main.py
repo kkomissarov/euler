@@ -1,23 +1,20 @@
-#Функция определяет является ли число простым
-def is_simple(num):
-
-    if num < 2:
-        return False
-
-    simple = True
-    for x in range(2, round(num**0.5)+1):
-        if num % x == 0 and num != x:
-            simple = False
-
-    return simple
-
+from eulerlib import check_simple
+from datetime import datetime
+start = datetime.now()
 
 i = 1 #Порядковый номер простого числа
+count = 10001
 num = 2 #Само число
-while i <= 1001:
-    if is_simple(num):
+
+
+
+while i <= count:
+    if check_simple(num):
         i += 1
-    if i <= 1001: #условие, чтобы не прибавлять единицу на последнем цикле
+    if i <= count: #условие, чтобы не прибавлять единицу на последнем цикле
         num += 1
 
-print(num)
+end = datetime.now()
+print('Ответ: ', num)
+print('Время выполнения: ', end - start)
+

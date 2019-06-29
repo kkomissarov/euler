@@ -1,13 +1,10 @@
-"""
-1. Генераторным выражением создаем кортеж из 3х элементов - произведение и два множетеля.
-2. Перебираем все возможные варианты, начиная с самого большого пока не встретим палиндром.
-3. Выражение string[::-1] возвращает перевернутую строку
-"""
+from datetime import datetime
+start = datetime.now()
 
-for x, i, j in ((i * j, i, j) for i in range(999, 100, -1)
-              for j in range(999, 100, -1)):
+result = max(i * j for i in range(100, 1000)
+                   for j in range(100, 1000)
+                   if str(i * j) == str(i * j)[::-1])
 
-    if str(x) == str(x)[::-1]:
-        print('{} = {} * {}'.format(x, i, j))
-        break
-
+end = datetime.now()
+print('Ответ:', result)
+print('Время выполнения:', end - start)
